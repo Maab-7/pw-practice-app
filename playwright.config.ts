@@ -14,6 +14,13 @@ export default defineConfig<TestOptions>({
   retries: 1,
   // /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
+    process.env.CI ? ["dot"] : ["list"],
+    [
+      "@argos-ci/playwright-reporter",
+      {
+        uploadToArgos: !!process.env.CI,
+      },
+    ],
     ['json', { outputFile: 'test-results/jsonReport.json'}],
     ['junit', { outputFile: 'test-results/junitReport.xml'}],
     //['allure-playwright'],
@@ -28,6 +35,7 @@ export default defineConfig<TestOptions>({
       : 'http://localhost:4200/',
 
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
     actionTimeout: 20000, // 5 seconds, the value by default is 0 (no timeout)
     navigationTimeout: 25000,// 10 seconds, the value by default is
     video: {mode: 'off',

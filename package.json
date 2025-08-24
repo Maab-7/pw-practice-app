@@ -13,7 +13,7 @@
     "pageObjects-firefox": "npx playwright test usePageObjects.spec.ts --project=firefox",
     "pageObjects-all": "npm run pageObjects-chrome && npm run pageObjects-firefox"
   },
-   "overrides": {
+  "overrides": {
     "stylus": "github:stylus/stylus#0.54.5"
   },
   "dependencies": {
@@ -63,6 +63,7 @@
     "@angular/cli": "^14.2.10",
     "@angular/compiler-cli": "^14.2.12",
     "@angular/language-service": "14.2.12",
+    "@argos-ci/playwright": "^6.1.1",
     "@compodoc/compodoc": "^1.1.19",
     "@faker-js/faker": "^9.9.0",
     "@fortawesome/fontawesome-free": "^5.2.0",
